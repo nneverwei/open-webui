@@ -306,3 +306,5 @@ dist
 # cypress artifacts
 cypress/videos
 cypress/screenshots
+static/pyodide/pyodide-lock.json
+package-lock.json

@@ -71,7 +71,7 @@
 	{#if confirmEdit}
 		<div
 			class=" w-full flex justify-between rounded-xl px-3 py-2 {chat.id === $chatId || confirmEdit
-				? 'bg-gray-200 dark:bg-gray-900'
+				? 'weic-bg-grey dark:bg-gray-900'
 				: selected
 				? 'bg-gray-100 dark:bg-gray-950'
 				: 'group-hover:bg-gray-100 dark:group-hover:bg-gray-950'}  whitespace-nowrap text-ellipsis"
@@ -85,7 +85,7 @@
 	{:else}
 		<a
 			class=" w-full flex justify-between rounded-xl px-3 py-2 {chat.id === $chatId || confirmEdit
-				? 'bg-gray-200 dark:bg-gray-900'
+				? 'weic-bg-grey dark:bg-gray-900'
 				: selected
 				? 'bg-gray-100 dark:bg-gray-950'
 				: ' group-hover:bg-gray-100 dark:group-hover:bg-gray-950'}  whitespace-nowrap text-ellipsis"
@@ -111,7 +111,8 @@
 			draggable="false"
 		>
 			<div class=" flex self-center flex-1 w-full">
-				<div class=" text-left self-center overflow-hidden w-full h-[20px]">
+				<svg style="margin-right:6px;color:#5c38d8;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-messages-square"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
+				<div class=" text-left self-center overflow-hidden w-full h-[20px]" style="display: inline-block;">
 					{chat.title}
 				</div>
 			</div>
@@ -120,6 +121,7 @@
 
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
+		style="{chat.id === $chatId || confirmEdit? 'background-color: #c7beee;background-image: none;' : ''}"
 		class="
         {chat.id === $chatId || confirmEdit
 			? 'from-gray-200 dark:from-gray-900'

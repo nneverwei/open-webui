@@ -219,21 +219,21 @@
 <div
 	bind:this={navElement}
 	id="sidebar"
-	class="h-screen max-h-[100dvh] min-h-screen select-none {$showSidebar
-		? 'md:relative w-[260px]'
-		: '-translate-x-[260px] w-[0px]'} bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-200 text-sm transition fixed z-50 top-0 left-0 rounded-r-2xl
+	class="weic-sidebar h-screen max-h-[100dvh] min-h-screen select-none {$showSidebar
+		? 'md:relative w-[280px]'
+		: '-translate-x-[280px] w-[0px]'} bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-200 text-sm transition fixed z-50 top-0 left-0 rounded-r-2xl
         "
 	data-state={$showSidebar}
 >
 	<div
-		class="py-2.5 my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[260px] z-50 {$showSidebar
+		class="py-2.5 my-auto flex flex-col justify-between h-screen max-h-[100dvh] w-[280px] z-50 {$showSidebar
 			? ''
 			: 'invisible'}"
 	>
 		<div class="px-2.5 flex justify-between space-x-1 text-gray-600 dark:text-gray-400">
 			<a
 				id="sidebar-new-chat-button"
-				class="flex flex-1 justify-between rounded-xl px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-850 transition"
+				class="weic-new-task flex flex-1 justify-between rounded-xl px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-850 transition"
 				href="/"
 				draggable="false"
 				on:click={async () => {
@@ -251,32 +251,20 @@
 				<div class="self-center mx-1.5">
 					<img
 						crossorigin="anonymous"
-						src="{WEBUI_BASE_URL}/static/favicon.png"
-						class=" size-6 -translate-x-1.5 rounded-full"
+						src="{WEBUI_BASE_URL}/static/qiko/qiko-head.png"
+						class=" size-8 -translate-x-1.5 rounded-full"
 						alt="logo"
 					/>
 				</div>
-				<div class=" self-center font-medium text-sm text-gray-850 dark:text-white">
-					{$i18n.t('New Chat')}
+				<div class="weic-new-task-btntxt self-center font-medium text-sm text-white dark:text-white">
+					<span>Let's</span>  <span>QIKO</span> ~
 				</div>
 				<div class="self-center ml-auto">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-						class="size-5"
-					>
-						<path
-							d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z"
-						/>
-						<path
-							d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z"
-						/>
-					</svg>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-heart"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M15.8 9.2a2.5 2.5 0 0 0-3.5 0l-.3.4-.35-.3a2.42 2.42 0 1 0-3.2 3.6l3.6 3.5 3.6-3.5c1.2-1.2 1.1-2.7.2-3.7"/></svg>
 				</div>
 			</a>
 
-			<button
+			<!--button
 				class=" cursor-pointer px-2 py-2 flex rounded-xl hover:bg-gray-100 dark:hover:bg-gray-850 transition"
 				on:click={() => {
 					showSidebar.set(!$showSidebar);
@@ -298,49 +286,27 @@
 						/>
 					</svg>
 				</div>
-			</button>
+			</button-->
 		</div>
 
-		{#if $user?.role === 'admin'}
-			<div class="px-2.5 flex justify-center text-gray-800 dark:text-gray-200">
-				<a
-					class="flex-grow flex space-x-3 rounded-xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-					href="/workspace"
-					on:click={() => {
-						selectedChatId = null;
-						chatId.set('');
+		
 
-						if ($mobile) {
-							showSidebar.set(false);
-						}
-					}}
-					draggable="false"
-				>
-					<div class="self-center">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="2"
-							stroke="currentColor"
-							class="size-[1.1rem]"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z"
-							/>
-						</svg>
-					</div>
+		<div class="px-2.5 flex justify-center text-gray-800 dark:text-gray-200">
+			<a
+				class="flex-grow flex space-x-3 rounded-xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+				draggable="false"
+			>
+				<div class="self-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-text"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/></svg>
+				</div>
 
-					<div class="flex self-center">
-						<div class=" self-center font-medium text-sm">{$i18n.t('Workspace')}</div>
-					</div>
-				</a>
-			</div>
-		{/if}
+				<div class="flex self-center">
+					<div class=" self-center font-medium text-sm weic-sidebar-menu-font">{$i18n.t('Chat history')}</div>
+				</div>
+			</a>
+		</div>
 
-		<div class="relative flex flex-col flex-1 overflow-y-auto">
+		<div class="relative flex flex-col flex-1 overflow-y-auto"  style="padding: 10px 0 30px 0;">
 			{#if !($settings.saveChatHistory ?? true)}
 				<div class="absolute z-40 w-full h-full bg-gray-50/90 dark:bg-black/90 flex justify-center">
 					<div class=" text-left px-5 py-2">
@@ -384,7 +350,7 @@
 				</div>
 			{/if}
 
-			<div class="px-2 mt-0.5 mb-2 flex justify-center space-x-2">
+			<!-- div class="px-2 mt-0.5 mb-2 flex justify-center space-x-2">
 				<div class="flex w-full rounded-xl" id="chat-search">
 					<div class="self-center pl-3 py-2 rounded-l-xl bg-transparent">
 						<svg
@@ -410,7 +376,7 @@
 						}}
 					/>
 				</div>
-			</div>
+			</div -->
 
 			{#if $tags.length > 0}
 				<div class="px-2.5 mb-2 flex gap-1 flex-wrap">
@@ -492,6 +458,89 @@
 				{/each}
 			</div>
 		</div>
+
+		<div class="px-2.5 flex justify-center text-gray-800 dark:text-gray-200">
+			<a
+				class="flex-grow flex space-x-3 rounded-xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+				draggable="false"
+			>
+				<div class="self-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-pie-chart"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 22h2a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3.5"/><path d="M4.017 11.512a6 6 0 1 0 8.466 8.475"/><path d="M8 16v-6a6 6 0 0 1 6 6z"/></svg>
+				</div>
+
+				<div class="flex self-center">
+					<div class=" self-center font-medium text-sm weic-sidebar-menu-font">{$i18n.t('SJFX')}</div>
+				</div>
+			</a>
+		</div>
+		<div class="px-2.5 flex justify-center text-gray-800 dark:text-gray-200">
+			<a
+				class="flex-grow flex space-x-3 rounded-xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+				draggable="false"
+			>
+				<div class="self-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-earth"><path d="M21.54 15H17a2 2 0 0 0-2 2v4.54"/><path d="M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17"/><path d="M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05"/><circle cx="12" cy="12" r="10"/></svg>
+				</div>
+
+				<div class="flex self-center">
+					<div class=" self-center font-medium text-sm weic-sidebar-menu-font">{$i18n.t('XXJS')}</div>
+				</div>
+			</a>
+		</div>
+		<div class="px-2.5 flex justify-center text-gray-800 dark:text-gray-200">
+			<a
+				class="flex-grow flex space-x-3 rounded-xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+				draggable="false"
+			>
+				<div class="self-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-presentation"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>
+				</div>
+
+				<div class="flex self-center">
+					<div class=" self-center font-medium text-sm weic-sidebar-menu-font">{$i18n.t('HYJY')}</div>
+				</div>
+			</a>
+		</div>
+		<div class="px-2.5 flex justify-center text-gray-800 dark:text-gray-200">
+			<a
+				class="flex-grow flex space-x-3 rounded-xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+				draggable="false"
+			>
+				<div class="self-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+				</div>
+
+				<div class="flex self-center">
+					<div class=" self-center font-medium text-sm weic-sidebar-menu-font">{$i18n.t('App market')}</div>
+				</div>
+			</a>
+		</div>
+
+		{#if $user?.role === 'admin'}
+			<div class="px-2.5 flex justify-center text-gray-800 dark:text-gray-200">
+				<a
+					class="flex-grow flex space-x-3 rounded-xl px-2.5 py-2 hover:bg-gray-100 dark:hover:bg-gray-900 transition"
+					href="/workspace"
+					on:click={() => {
+						selectedChatId = null;
+						chatId.set('');
+
+						if ($mobile) {
+							showSidebar.set(false);
+						}
+					}}
+					draggable="false"
+				>
+					<div class="self-center">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-orbit"><circle cx="12" cy="12" r="3"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><path d="M10.4 21.9a10 10 0 0 0 9.941-15.416"/><path d="M13.5 2.1a10 10 0 0 0-9.841 15.416"/></svg>
+					</div>
+
+					<div class="flex self-center">
+						<div class="self-center font-medium text-sm weic-sidebar-menu-font">{$i18n.t('Workspace')}</div>
+					</div>
+				</a>
+			</div>
+		{/if}
 
 		<div class="px-2.5">
 			<!-- <hr class=" border-gray-900 mb-1 w-full" /> -->

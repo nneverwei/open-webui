@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "npm run pyodide:fetch && vite dev --host",
+		"vbuild": "vite build",
 		"build": "npm run pyodide:fetch && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -68,7 +69,7 @@
 		"katex": "^0.16.9",
 		"marked": "^9.1.0",
 		"mermaid": "^10.9.1",
-		"pyodide": "^0.26.0-alpha.4",
+		"pyodide": "^0.26.1",
 		"socket.io-client": "^4.7.5",
 		"sortablejs": "^1.15.2",
 		"svelte-sonner": "^0.3.19",

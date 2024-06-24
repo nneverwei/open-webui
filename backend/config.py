@@ -536,33 +536,13 @@ DEFAULT_PROMPT_SUGGESTIONS = PersistentConfig(
     "DEFAULT_PROMPT_SUGGESTIONS",
     "ui.prompt_suggestions",
     [
-        {
-            "title": ["Help me study", "vocabulary for a college entrance exam"],
-            "content": "Help me study vocabulary: write a sentence for me to fill in the blank, and I'll try to pick the correct option.",
-        },
-        {
-            "title": ["Give me ideas", "for what to do with my kids' art"],
-            "content": "What are 5 creative things I could do with my kids' art? I don't want to throw them away, but it's also so much clutter.",
-        },
-        {
-            "title": ["Tell me a fun fact", "about the Roman Empire"],
-            "content": "Tell me a random fun fact about the Roman Empire",
-        },
-        {
-            "title": ["Show me a code snippet", "of a website's sticky header"],
-            "content": "Show me a code snippet of a website's sticky header in CSS and JavaScript.",
-        },
-        {
-            "title": [
-                "Explain options trading",
-                "if I'm familiar with buying and selling stocks",
-            ],
-            "content": "Explain options trading in simple terms if I'm familiar with buying and selling stocks.",
-        },
-        {
-            "title": ["Overcome procrastination", "give me tips"],
-            "content": "Could you start by asking me about instances when I procrastinate the most and then give me some suggestions to overcome it?",
-        },
+        {"title":["寻求学习帮助","关于高考词汇的建议"],"content":"请给我写一个句子，让我填空，然后我会尽力选择正确的选项。"},
+        {"title":["给我一些想法","如何处理孩子的艺术作品"],"content":"我可以用孩子的艺术作品做五件有创意的事情吗？我不想把它们扔掉，但它们也太乱了。"},
+        {"title":["告诉我一个有趣的事实","罗马帝国"],"content":"告诉我一个关于罗马帝国的随机有趣事实。"},
+        {"title":["给我一个代码片段","网站的粘性标题"],"content":"请给我一个网站粘性标题的代码片段（使用 CSS 和 JavaScript）。"},
+        {"title":["解释期权交易","如果我熟悉买卖股票"],"content":"如果我熟悉买卖股票，请用简单的术语解释一下期权交易。"},
+        {"title":["克服拖延","给我一些建议"],"content":"你能先问我一下我最常拖延的情况，然后给我一些建议来克服它吗？"},
+        {"title":["语法检查","使其更具可读性"],"content":"请检查以下句子的语法和清晰度：“[句子]”。在保持原意的同时，使其更具可读性。"}
     ],
 )
 

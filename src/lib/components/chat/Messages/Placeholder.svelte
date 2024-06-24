@@ -33,7 +33,7 @@
 
 {#key mounted}
 	<div class="m-auto w-full max-w-6xl px-8 lg:px-24 pb-10">
-		<div class="flex justify-start">
+		<!--div class="flex justify-start">
 			<div class="flex -space-x-4 mb-1" in:fade={{ duration: 200 }}>
 				{#each models as model, modelIdx}
 					<button
@@ -52,13 +52,19 @@
 					</button>
 				{/each}
 			</div>
-		</div>
+		</div -->
 
 		<div
-			class=" mt-2 mb-4 text-3xl text-gray-800 dark:text-gray-100 font-semibold text-left flex items-center gap-4"
+			class=" mt-2 mb-20 text-3xl text-gray-800 dark:text-gray-100 font-semibold text-left flex items-center gap-4"
 		>
-			<div>
-				<div class=" capitalize line-clamp-1" in:fade={{ duration: 200 }}>
+			<div class="flex">
+				<img 
+					crossorigin="anonymous"
+					src="{WEBUI_BASE_URL}/static/qiko/qiko-hello.png"
+					class="rounded-full mr-5 avatar-_32ade" style="width:100px;" draggable="false" alt="qiko">
+			</div>
+			<div style="line-height: 40px;">
+				<div class=" capitalize line-clamp-1" style="font-size:28px;" in:fade={{ duration: 200 }}>
 					{#if models[selectedModelIdx]?.info}
 						{models[selectedModelIdx]?.info?.name}
 					{:else}
@@ -92,7 +98,7 @@
 							</div>
 						{/if}
 					{:else}
-						<div class=" font-medium text-gray-400 dark:text-gray-500 line-clamp-1">
+						<div class=" font-medium text-gray-400 dark:text-gray-500 line-clamp-1" style="font-size:24px;color:#b59de0;">
 							{$i18n.t('How can I help you today?')}
 						</div>
 					{/if}

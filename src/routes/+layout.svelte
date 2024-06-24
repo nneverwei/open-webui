@@ -25,6 +25,7 @@
 
 	import '../tailwind.css';
 	import '../app.css';
+	import '../weic.css';
 
 	import 'tippy.js/dist/tippy.css';
 
